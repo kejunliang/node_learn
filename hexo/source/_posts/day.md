@@ -5,4 +5,5 @@ tags:
 ---
 
 # 创建仓库
-![](example.png)
+  这里要注意仓库的地址必须是你的github的帐号+github.io,比如kejunliang.github.io
+![](creat.png)
