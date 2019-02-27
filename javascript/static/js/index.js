@@ -58,6 +58,17 @@ Function.prototype.addMethod=function(name,fn){
     return this;
 }
 var a6=new Function();
+
 a6.addMethod("checkname",function(){console.log("验证名字6");return this;}).addMethod("checkemail",function(){console.log("验证邮箱6");return this})
 a6.checkname().checkemail();
 a6.checkemail();
+
+// 为原始function 增加一个通用方法
+Function.prototype.addMethod_1=function(name,fn){
+    this.prototype[name]=fn;
+    return this;
+}
+var a7=new Function();
+a7.addMethod_1("checkname",function(){console.log("验证名字7");return this;}).addMethod_1("checkemail",function(){console.log("验证邮箱7");return this})
+var aa7=new a7();
+aa7.checkname();
