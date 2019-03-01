@@ -8,6 +8,7 @@ categories:
 ---
 
 # domino 日常打卡-xml解析
+## 其实在我们获取到domParser.Document方法后就可以用对象.来查看所有获取的方法，然后根据自己的需求来获取数据
 解析xml的常用方法
 ``` lotus 
 REM
