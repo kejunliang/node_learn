@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://yoursite.com/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -41,7 +41,7 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace:
   
 # Home page setting
@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: material-x
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -83,3 +83,69 @@ deploy:
   repo: https://github.com/kejunliang/kejunliang.github.io #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: master #published
   message: git
+
+
+
+import:
+  meta:
+  - "<meta name='theme-color' content='#FFFFFF'>"
+  - "<meta name='msapplication-TileColor' content='#1BC3FB'>"
+  - "<meta name='msapplication-config' content='https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/browserconfig.xml'>"
+  link:
+  - "<link rel='shortcut icon' type='image/x-icon' href='https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico'>"
+  - "<link rel='icon' type='image/x-icon' sizes='32x32' href='https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/favicon-32x32.png'>"
+  - "<link rel='apple-touch-icon' type='image/png' sizes='180x180' href='https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/apple-touch-icon.png'>"
+  - "<link rel='mask-icon' color='#1BC3FB' href='https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/safari-pinned-tab.svg'>"
+  - "<link rel='manifest' href='https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/site.webmanifest'>"
+  
+menu:
+  - name: 个人首页
+    icon: fas fa-home
+    url: https://kejunliang.github.io/
+  - name: 归档
+    icon: fas fa-archive
+    url: archives/
+
+
+widgets:
+  - widget: author
+    avatar: https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/avatar/avatar.png
+    jinrishici: true
+    social: true
+  - widget: plain
+    icon: fas fa-bullhorn
+    title: 注意啦～
+    body: '本站使用 [Material X](https://xaoxuu.com/wiki/material-x/) 作为主题，喜欢这个主题的朋友可以阅读文档进行安装哦，超喜欢的话还可以安利给身边的朋友哦～'
+    more:
+      icon: fas fa-question-circle
+      url: https://kejunliang.github.io/
+  - widget: list
+    icon: fas fa-medal
+    title: 精选项目
+    more:
+      icon: fas fa-arrow-right
+      url: https://github.com/kejunliang/
+    rows:
+      - name: AXKit
+        desc: iOS开源库
+        icon: fas fa-cube
+        url: https://github.com/kejunliang/
+      - name: NoticeBoard
+        desc: iOS开源库
+        icon: fas fa-cube
+        url: https://github.com/kejunliang/
+  - widget: toc
+  - widget: tagcloud
+  - widget: category
+  
+
+  # 页脚社交信息
+social:
+  - icon: fas fa-rss
+    url: atom.xml
+  - icon: fas fa-envelope
+    url: mailto:kejunliang@126.com
+  - icon: fab fa-github
+    url: https://github.com/kejunliang/
+  - icon: fas fa-headphones-alt
+    url: https://music.163.com/#/user/home?id=63035382
