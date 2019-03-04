@@ -2,9 +2,9 @@
 title: 欢迎来到我的博客
 ---
 
-## Quick Start
+## 快速创建一个博客
 
-### Create a new post
+###  创建一个博客
 
 ``` bash
 $ hexo new "My New Post"
@@ -12,7 +12,7 @@ $ hexo new "My New Post"
 
 More info: [Writing](https://hexo.io/docs/writing.html)
 
-### Run server
+### 启动服务
 
 ``` bash
 $ hexo server
@@ -20,7 +20,7 @@ $ hexo server
 
 More info: [Server](https://hexo.io/docs/server.html)
 
-### Generate static files
+### 创建文件
 
 ``` bash
 $ hexo generate
@@ -28,7 +28,7 @@ $ hexo generate
 
 More info: [Generating](https://hexo.io/docs/generating.html)
 
-### Deploy to remote sites
+### 同步到github
 
 ``` bash
 $ hexo deploy
