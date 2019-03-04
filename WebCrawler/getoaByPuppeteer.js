@@ -13,6 +13,5 @@ const puppeteer = require('puppeteer');
  await page.goto('http://uatbx.scpcdc.com.cn/ghbx/office.nsf/(frame)/normal');//在地址栏输入网址并等待加载
  await page.waitFor(5000);
  await page.screenshot({path: 'example2.png'});//截个图
- 
-  await browser.close();//关掉浏览器
+ await browser.close();//关掉浏览器
 })();
