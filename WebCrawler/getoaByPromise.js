@@ -1,6 +1,8 @@
 var http = require('http');  
 var cheerio=require("cheerio");
 var iconv= require('iconv-lite')
+var Username="admin";
+var Password="kfpassword"
 /*
 功能：获取OA的LtpaToken 用户登录系统
 */
@@ -8,8 +10,7 @@ function getLtpaToken(){
     //创建promise 用户再次获取的时候传递cookie信息
     var p=new Promise((resolve,reject)=>{
         // 第一次请求获取  LtpaToken
-        var Username="admin";
-        var Password="kfpassword"
+        
         var options = {  
             hostname: 'uatbx.scpcdc.com.cn',  
             path: "/names.nsf?Login&%25%25ModDate=0000000000000000&reasonType=0&%25%25Surrogate_locale=1&locale=zh-cn&Username="+Username+"&Password="+Password+"&RedirectTo=%2Findishare%2Fsecurtrac.nsf%2Fagttrac%3Fopenagent%26url%3D%2Findishare%2Fbxgl%2Fywjcsj.nsf%2F%28frame%29%2Fdzbx", 
@@ -51,7 +52,7 @@ function GetInfo(cookie){
     var obj=JSON.parse(cookie)
     LtpaToken=obj["set-cookie"][0].split(";")[0]
     /// 第二次请求 登录
-    var cookie="myusername=admin; SessionID=21C724E0CA4022AA707FD502CCFDCAC9FFC8344C; indi_locale=zh-cn;"+LtpaToken
+    var cookie="myusername="+Username+"; SessionID=21C724E0CA4022AA707FD502CCFDCAC9FFC8344C; indi_locale=zh-cn;"+LtpaToken
     var options1 = {  
         hostname: 'uatbx.scpcdc.com.cn',  
         path: "/ghbx/dep1/xypj.nsf/frmTongJi?OpenForm&name=", 
