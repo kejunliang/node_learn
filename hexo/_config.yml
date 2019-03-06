@@ -109,7 +109,7 @@ menu:
 
 widgets:
   - widget: author
-    avatar: https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/avatar/avatar.png
+    avatar: 
     jinrishici: true
     social: true
   - widget: plain
