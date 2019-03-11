@@ -38,3 +38,13 @@ var Book = (function() {         
         //返回类       
         return _book    
     })()
+/// 利用必要实现计数器
+
+var b=function(){ 
+    var n=0; 
+    var test=function (){ 
+       n=n+1
+       console.log(n)
+    };
+    return test
+}
