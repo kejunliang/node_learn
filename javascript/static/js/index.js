@@ -72,3 +72,26 @@ var a7=new Function();
 a7.addMethod_1("checkname",function(){console.log("验证名字7");return this;}).addMethod_1("checkemail",function(){console.log("验证邮箱7");return this})
 var aa7=new a7();
 aa7.checkname();
+
+
+
+function makeSizer(size) {
+    return function() {
+    
+        document.body.style.fontSize = size + 'px';
+     
+     
+    };
+  }
+  
+  var size12 = makeSizer(12);
+  var size14 = makeSizer(14);
+  var size16 = makeSizer(16);
+
+
+
+window.onload=function(){
+    document.getElementById('size-12').onclick =  size12;
+document.getElementById('size-14').onclick =  size14;
+document.getElementById('size-16').onclick =  size16;
+}
