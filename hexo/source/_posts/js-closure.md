@@ -9,6 +9,7 @@ categories:
 
 # 今天来聊聊闭包
    闭包：就是能读取其他函数内部变量的函数。由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成"定义在一个函数内部的函数"。
+   ### [MDN关于闭包](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures)
 
    ``` javascript
    // 此样例来此 阮一峰的个人日志
