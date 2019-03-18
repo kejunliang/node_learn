@@ -33,3 +33,5 @@ var book=function(name,id){
 }
 var test=new book("我是图书","000")
 console.log(test.name)
+///构造函数继承
+
