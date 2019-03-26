@@ -77,7 +77,8 @@ function GetInfo(cookie){
             console.log(1111)
             console.log(html)
             var $ = cheerio.load(html,{decodeEntities: false});
-            //获取数据table
+            //获取数据table  这里类似 jquery
+            console.log("解析=="+$("#grid_2"))
         });  
     });    
     reqAgain.on('error', function (e) {  

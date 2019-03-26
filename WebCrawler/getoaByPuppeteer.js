@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
  (async () => {
-  const browser = await puppeteer.launch();//打开浏览器
+  const browser = await puppeteer.launch({headless: false,devtools: false});//打开浏览器
   const page = await browser.newPage();//打开一个空白页
   await page.goto('http://uatbx.scpcdc.com.cn/');//在地址栏输入网址并等待加载
   //await page.screenshot({path: 'example.png'});//截个图
