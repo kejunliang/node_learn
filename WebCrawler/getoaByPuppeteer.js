@@ -9,7 +9,6 @@ const puppeteer = require('puppeteer');
   await page.type('#pwd','kfpassword');
   await page.click("div[class='login-btn']");
  //页面登录成功后，是否需要reload 根据实际情况来确定
-  
  await page.goto('http://uatbx.scpcdc.com.cn/ghbx/office.nsf/(frame)/normal');//在地址栏输入网址并等待加载
  await page.waitFor(5000);
  await page.screenshot({path: 'example2.png'});//截个图
