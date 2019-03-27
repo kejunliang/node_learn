@@ -1,9 +1,10 @@
 // 引入hello模块:
-var greet = require('./hello');
-var run = require ('./exportOne')
-var run2 = require ('./exportTwo')
-var s = 'Michael';
-run.book("书");
-run.pen("铅笔")
-run2.book2("java编程思想")
-run2.pen2("鼠标")
+var he=require('./hello');
+var dd=require('./exportOne');
+var ee=require('./exportTwo')
+
+dd.book("书")
+dd.pen("笔")
+ee.book2("电脑")
+
+he("我得")
