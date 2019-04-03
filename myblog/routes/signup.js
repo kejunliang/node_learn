@@ -43,7 +43,11 @@ router.post('/', checkNotLogin, function (req, res, next) {
     }
   } catch (e) {
     // 注册失败，异步删除上传的头像
-    fs.unlink(req.files.avatar.path)
+    console.log(req.files.avatar.name)
+    if(req.files.avatar.name!=""){
+      fs.unlink(req.files.avatar.path)
+    }
+   
     req.flash('error', e.message)
     return res.redirect('/signup')
   }
