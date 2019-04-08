@@ -36,14 +36,14 @@ app.use(expressJwt({secret: 'todo-app-super-shared-secret'}).unless({path: ['/ap
 
 app.post('/api/auth', function(req, res) {
     const body = req.body;
-    console.log(body.username);
+    console.log("登录验证接口");
     const user = USERS.find(user =>  user.username == body.username);
     if(!user || body.password != 'todo') return res.sendStatus(401);
     
-    var token = jwt.sign({userID: user.id}, 'todo-app-super-shared-secret', {expiresIn: '2h'});
+    var token = jwt.sign({userID: user.id,userName:user.username}, 'todo-app-super-shared-secret', {expiresIn: '2h'});
     res.send({token});
   });
-
+ 
 app.get('/', function (req, res) {
     res.send('Angular JWT Todo API Server')
 });
@@ -52,6 +52,7 @@ app.get('/api/todos', function (req, res) {
     res.type("json");
     console.log("获取嘟嘟")
     console.log(req.user.userID)
+    console.log(req.user)
     res.send(getTodos(req.user.userID));
 });
 app.get('/api/todos/:id', function (req, res) {
