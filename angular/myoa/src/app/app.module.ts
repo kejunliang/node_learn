@@ -15,10 +15,12 @@ import { MatListModule } from "@angular/material/list";
 import { MatTreeModule } from "@angular/material/tree";
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClientModule }    from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,MatCardModule,BrowserAnimationsModule,MatButtonModule,MatInputModule,FormsModule,MatIconModule,
