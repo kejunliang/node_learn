@@ -16,6 +16,7 @@ import { MatTreeModule } from "@angular/material/tree";
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClientModule }    from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { MatSidenavModule } from "@angular/material";
 
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthService } from './auth.service';
@@ -40,7 +41,8 @@ export function tokenGetter() {
         whitelistedDomains: ['localhost:3000'],
         blacklistedRoutes: ['localhost:3000/api/signin/auth']
       }
-    })
+    }),
+    MatSidenavModule
   ],
   providers: [
     AuthService, 

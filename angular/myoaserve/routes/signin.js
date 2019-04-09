@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 
 const jwt = require('jsonwebtoken');
-const expressJwt = require('express-jwt');
+
 
 var USERS = [
   { 'id': 1, 'username': 'kejl' },
@@ -14,13 +14,14 @@ var USERS = [
 
 router.post('/auth', function(req, res) {
   const body = req.body;
+
   console.log("登录验证接口");
-  const user = USERS.find(user =>  user.username == body.username);
+  const user = USERS.find(user =>  user.userName == body.username);
   console.log(user)
   if(!user || body.password != 'todo') return res.sendStatus(401);
-  
-  var token = jwt.sign({userID: user.id,userName:user.username}, 'todo-app-super-shared-secret', {expiresIn: '2h'});
-  res.send({token});
+  var token = jwt.sign({userID: user.id,userName:user.username}, 'app-super-shared-secret', {expiresIn: '2h'});
+  res.send({"msg":"ok","user":{"token":12345678,"name":user.userName}});
+
 });
 
 // GET /signin 登录页
