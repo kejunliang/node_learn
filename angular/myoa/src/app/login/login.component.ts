@@ -1,6 +1,7 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from '../login.service'
+import { AuthService } from '../auth.service';
+import { first } from 'rxjs/operators';
 @Component({ 
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,17 +9,21 @@ import { LoginService } from '../login.service'
 })
 
 export class LoginComponent implements OnInit {
-  hide = true;
-  constructor(private LoginService: LoginService) {
-  }
-  name=""
-  password=""
-  flag=false;
-  gohome(): void{
-    console.log("点击");
-    const data=this.LoginService.getLogin();
-    console.log(data);
+ 
+  public username: string;
+  public password: string;
+  public error: string;
 
+  constructor(private auth: AuthService, private router: Router) { }
+
+  public submit() {
+    console.log(this.username)
+    this.auth.login(this.username, this.password)
+      .pipe(first())
+      .subscribe(
+        result => this.router.navigate(['home']),
+        err => this.error = 'Could not authenticate'
+      );
   }
   
 
