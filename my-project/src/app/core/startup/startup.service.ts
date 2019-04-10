@@ -132,35 +132,7 @@ export class StartupService {
       // only works with promises
     // https://github.com/angular/angular/issues/15088
     return new Promise((resolve, reject) => {
-      this.httpClient
-        .get('/api')
-        .pipe(
-          catchError((res: any) => {
-            resolve(null);
-            return null;
-          }),
-        )
-        .subscribe(
-          (res: any) => {
-            if (res != null) this.injector.get(NzMessageService).success(JSON.stringify(res));
-            // // application data
-            // const res: any = appData;
-            // // 应用信息：包括站点名、描述、年份
-            // this.settingService.setApp(res.app);
-            // // 用户信息：包括姓名、头像、邮箱地址
-            // this.settingService.setUser(res.user);
-            // // ACL：设置权限为全量
-            // this.aclService.setFull(true);
-            // // 初始化菜单
-            // this.menuService.add(res.menu);
-            // // 设置页面标题的后缀
-            // this.titleService.suffix = res.app.name;
-          },
-          () => {},
-          () => {
-            resolve(null);
-          },
-        );
+       this.viaMockI18n(resolve, reject)
     });
   }
 }
