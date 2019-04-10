@@ -110,14 +110,14 @@ export class UserLoginComponent implements OnDestroy {
     // /login/account?_allow_anonymous=true
     console.log("调用验证")
     this.http
-      .post('/login/account?_allow_anonymous=true', {
+      .post('/api/signin/auth?_allow_anonymous=true', {
         type: this.type,
         userName: this.userName.value,
         password: this.password.value,
       })
       .subscribe((res: any) => {
          console.log("11")
-         console.log(res)
+         console.log(res)                     
         if (res.msg !== 'ok') {
           this.error = res.msg;
           return;
@@ -125,15 +125,21 @@ export class UserLoginComponent implements OnDestroy {
         // 清空路由复用信息
         this.reuseTabService.clear();
         // 设置用户Token信息
+        console.log(res.user);
         this.tokenService.set(res.user);
-        console.log(222)
+          // 设置Token信息
+       // this.tokenService.set({
+         //  token: res.user,
+       // });
+        console.log(333)
         // 重新获取 StartupService 内容，我们始终认为应用信息一般都会受当前用户授权范围而影响
-        this.startupSrv.load().then(() => {
-          console.log(this.tokenService)
-          let url = this.tokenService.referrer.url || '/';
-          if (url.includes('/passport')) url = '/';
-          this.router.navigateByUrl(url);
-        });
+        // this.startupSrv.load().then(() => {
+        //   console.log(this.tokenService)
+        //   let url = this.tokenService.referrer.url || '/';
+        //   if (url.includes('/api')) url = '/';
+        //   this.router.navigateByUrl(url);
+        // });
+        this.startupSrv.load().then(() => this.router.navigate(['/']));
       });
   }
 

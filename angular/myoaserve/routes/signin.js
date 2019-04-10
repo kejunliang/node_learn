@@ -20,12 +20,13 @@ router.post('/auth', function(req, res) {
   console.log(user)
   if(!user || body.password != 'todo') return res.sendStatus(401);
   var token = jwt.sign({userID: user.id,userName:user.username}, 'app-super-shared-secret', {expiresIn: '2h'});
-  res.send({"msg":"ok","user":{"token":12345678,"name":user.userName}});
+  res.send({"msg":"ok","user":{"token":"12345678","name":user.username,"id":1000,"email":user.username+"@126.com","time":+new Date()}});
 
 });
 
 // GET /signin 登录页
 router.get('/', function (req, res, next) {
+  console.log("调用服务器了")  
   res.send("登录页")
 })
 
