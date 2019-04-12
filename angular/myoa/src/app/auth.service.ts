@@ -9,6 +9,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
   login(username: string, password: string): Observable<boolean> {
+    console.log("111")
     return this.http.post<{token: string}>('/api/signin/auth', {username: username, password: password})
       .pipe(
         map(result => { 

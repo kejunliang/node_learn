@@ -13,9 +13,8 @@ export class LoginComponent implements OnInit {
   public username: string;
   public password: string;
   public error: string;
-
+  hide = true;
   constructor(private auth: AuthService, private router: Router) { }
-
   public submit() {
     console.log(this.username)
     this.auth.login(this.username, this.password)
@@ -24,10 +23,10 @@ export class LoginComponent implements OnInit {
         result => this.router.navigate(['home']),
         err => this.error = 'Could not authenticate'
       );
-  }
-  
 
+  }
   ngOnInit() {
+  
   }
 
 }

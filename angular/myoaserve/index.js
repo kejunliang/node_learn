@@ -16,7 +16,7 @@ app.all('*', function(req, res, next) {
 });
 
 app.use(bodyParser.json());
-//app.use(expressJwt({secret: 'app-super-shared-secret'}).unless({path: ['/api/signin/auth']}));
+app.use(expressJwt({secret: 'app-super-shared-secret'}).unless({path: ['/api/signin/auth']}));
 // 路由
 routes(app)
 // 监听端口，启动程序

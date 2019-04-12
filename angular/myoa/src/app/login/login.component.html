@@ -1,46 +1,27 @@
-<div class="divLeft">  
-  <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>个人信息</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-            书山有路勤为径，学海无涯苦作舟
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>链接</button>
-        <button mat-button>分享</button>
-      </mat-card-actions>
-    </mat-card>
-</div>
-<div class="divRight">
- <mat-card>
-    <mat-card-content>
-         
-          <mat-form-field class="example-full-width">
+
+  
+<div fxLayout="row" fxLayoutAlign="center">
+  <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="60%">
+    <div class="container-login">
+      <h1 class="mat-display-3"></h1>
+      <form>
+       <div fxLayout="column">
+          <mat-form-field fxFlex>
             <input matInput placeholder="用户名" value="username" name ="username" [(ngModel)]="username">
-            <mat-error *ngIf="flag">
+            <mat-error *ngIf="">
               密码错误
             </mat-error>
           </mat-form-field>
         
-          <mat-form-field class="example-full-width">
+          <mat-form-field fxFlex>
             <input matInput placeholder="密码"  name="password" [type]="hide ? 'password' : 'text'" value="password" [(ngModel)]="password">
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
-
-          <div class="button-row">
-        
+          <div fxFlex>
             <button mat-raised-button color="primary"  (click)="submit()">登陆</button>
-            <button mat-raised-button >注册</button>
-          </div>
-       
-    </mat-card-content> 
- </mat-card>
-
-
+         </div>
+       </div>
+      </form> 
+  </div>
+  </div>
 </div>

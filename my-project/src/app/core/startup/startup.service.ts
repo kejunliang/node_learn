@@ -112,7 +112,14 @@ export class StartupService {
           {
             text: '仪表盘',
             link: '/dashboard',
-            icon: { type: 'icon', value: 'appstore' }
+            icon: { type: 'icon', value: 'appstore' },
+            children:[
+              {
+                "text": "工作台",
+                "link": "/dashboard/workplace",
+                "i18n": "menu.dashboard.workplace"
+              }
+            ]
           },
           {
             text: '快捷菜单',

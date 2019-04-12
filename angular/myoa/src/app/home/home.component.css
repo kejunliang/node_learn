@@ -1,17 +1,24 @@
-.example-container {
-    width: 500px;
-    height: 300px;
-    border: 1px solid rgba(0, 0, 0, 0.5);
+.mat-drawer {
+  width: 80vw;
+}
+.mat-drawer-content {
+  min-height: 100vh;
+}
+  
+  .mat-toolbar {
+    box-shadow: 0 0 15px rgba(0,0,0,.87);
+    position: relative;
+    z-index: 1000;
+  
+   
   }
   
-  .example-sidenav-content {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
+  .sidenav-button {
+    margin-right: 16px;
   }
-  
-  .example-sidenav {
-    padding: 20px;
+
+  .brand {
+    font-weight: 300;
   }
-  
+
+ 

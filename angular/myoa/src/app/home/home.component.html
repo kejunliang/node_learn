@@ -1,14 +1,59 @@
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-   </mat-drawer>
-
-  <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="drawer.toggle()">
-      Toggle sidenav
-    </button>
-  </div>
-
-</mat-drawer-container>
-
-
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over">
+      <div fxLayout="column">
+        <mat-card>
+          <mat-card-header>
+            <img mat-card-avatar  />
+          </mat-card-header>
+          <mat-card-content>
+            <a fxLayout="row" >
+              <div fxFlex>
+                <mat-card-title></mat-card-title>
+                <mat-card-subtitle></mat-card-subtitle>
+              </div>
+              <div fxFlex="24px" fxFlexAlign="center">
+                <mat-icon *ngIf="primaryNav" color="primary">arrow_drop_down</mat-icon>
+                <mat-icon *ngIf="!primaryNav">arrow_drop_up</mat-icon>
+              </div>
+            </a>
+          </mat-card-content>
+        </mat-card>
+        <app-nav *ngIf="primaryNav" (routerClick)="sidenav.close()"></app-nav>
+        <mat-nav-list *ngIf="!primaryNav">
+          <h3 matSubheader>Account</h3>
+          <a mat-list-item routerLink="/profile" routerLinkActive="active" (click)="sidenav.close()">
+            <mat-icon>account_circle</mat-icon>
+            <span fxFlexOffset="30px">Profile</span>
+          </a>
+          <a mat-list-item >
+            <mat-icon>directions_run</mat-icon>
+            <span fxFlexOffset="30px">Logout</span>
+          </a>
+        </mat-nav-list>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button mat-icon-button class="sidenav-button" fxShow="false" fxShow.lt-md="true" (click)="sidenav.open()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span fxFlex="auto" class="brand">name</span>
+        <button mat-button [matMenuTriggerFor]="profileMenu" fxShow="true" fxShow.lt-md="false">
+          <img class="avatar" /> My account
+        </button>
+        <mat-menu #profileMenu>
+          <a mat-menu-item routerLink="/profile" routerLinkActive="active">Profile</a>
+          <button mat-menu-item >Logout</button>
+        </mat-menu>
+      </mat-toolbar>
+      <div fxLayout="row" class="container">
+        <div fxFlex="20%" fxShow="true" fxShow.lt-md="false" class="nav">
+          <app-nav></app-nav>
+        </div>
+        <div fxFlex="80%" fxFlex.lt-md="100%" class="content">
+          
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

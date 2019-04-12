@@ -15,7 +15,7 @@ import { UserRegisterResultComponent } from './passport/register-result/register
 // single pages
 import { CallbackComponent } from './callback/callback.component';
 import { UserLockComponent } from './passport/lock/lock.component';
-
+import { DashboardWorkplaceComponent } from "./dashboard/workplace/workplace.component";
 const routes: Routes = [
   {
     path: '',
@@ -25,6 +25,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent, data: { title: '仪表盘' } },
       { path: 'exception', loadChildren: './exception/exception.module#ExceptionModule' },
+      { path: 'dashboard/workplace', component: DashboardWorkplaceComponent },
+      { path: 'pro', loadChildren: './pro/pro.module#ProModule' },
       // 业务子模块
       // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' }
     ]

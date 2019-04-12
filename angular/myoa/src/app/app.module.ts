@@ -16,11 +16,13 @@ import { MatTreeModule } from "@angular/material/tree";
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClientModule }    from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import { MatSidenavModule } from "@angular/material";
+import { MatSidenavModule,MatMenuModule,MatToolbarModule } from "@angular/material";
 
-import { JwtModule } from '@auth0/angular-jwt';
+import { JwtModule } from '@auth0/angular-jwt'; 
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
+import { NavModule } from './nav/nav.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -42,7 +44,11 @@ export function tokenGetter() {
         blacklistedRoutes: ['localhost:3000/api/signin/auth']
       }
     }),
-    MatSidenavModule
+    MatSidenavModule,
+    NavModule,
+    MatMenuModule,
+    MatToolbarModule,
+    FlexLayoutModule
   ],
   providers: [
     AuthService, 

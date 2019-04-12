@@ -16,11 +16,12 @@ router.post('/auth', function(req, res) {
   const body = req.body;
 
   console.log("登录验证接口");
-  const user = USERS.find(user =>  user.userName == body.username);
+  const user = USERS.find(user =>  user.username == body.username);
   console.log(user)
   if(!user || body.password != 'todo') return res.sendStatus(401);
   var token = jwt.sign({userID: user.id,userName:user.username}, 'app-super-shared-secret', {expiresIn: '2h'});
-  res.send({"msg":"ok","user":{"token":"12345678","name":user.username,"id":1000,"email":user.username+"@126.com","time":+new Date()}});
+  res.send({token})
+  // res.send({"msg":"ok","user":{"token":"12345678","name":user.username,"id":1000,"email":user.username+"@126.com","time":+new Date()}});
 
 });
 
