@@ -17,7 +17,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClientModule }    from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { MatSidenavModule,MatMenuModule,MatToolbarModule } from "@angular/material";
-
+import {  UserComponent } from "./containers/user/user.component";
 import { JwtModule } from '@auth0/angular-jwt'; 
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
@@ -32,7 +32,8 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,MatCardModule,BrowserAnimationsModule,MatButtonModule,MatInputModule,FormsModule,MatIconModule,

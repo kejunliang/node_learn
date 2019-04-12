@@ -1,4 +1,4 @@
-<mat-sidenav-container>
+<mat-sidenav-container>  
     <mat-sidenav #sidenav mode="over">
       <div fxLayout="column">
         <mat-card>
@@ -51,7 +51,10 @@
           <app-nav></app-nav>
         </div>
         <div fxFlex="80%" fxFlex.lt-md="100%" class="content">
-          
+          <div >
+           
+            <router-outlet ></router-outlet>
+          </div>
         </div>
       </div>
     </mat-sidenav-content>

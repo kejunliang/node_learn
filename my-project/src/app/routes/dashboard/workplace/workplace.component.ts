@@ -92,7 +92,7 @@ export class DashboardWorkplaceComponent implements OnInit {
     private cdr: ChangeDetectorRef,
   ) {}
 
-  ngOnInit() {
+  ngOnInit() { 
     // zip(
     //   this.http.get('/chart'),
     //   this.http.get('/api/notice'),
