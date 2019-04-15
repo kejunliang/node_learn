@@ -23,6 +23,7 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { NavModule } from './nav/nav.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlowComponent } from './flow/flow.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -33,7 +34,8 @@ export function tokenGetter() {
     AppComponent,
     LoginComponent,
     HomeComponent,
-    UserComponent
+    UserComponent,
+    FlowComponent
   ],
   imports: [
     BrowserModule,MatCardModule,BrowserAnimationsModule,MatButtonModule,MatInputModule,FormsModule,MatIconModule,

@@ -4,6 +4,7 @@ import {LoginComponent} from  './login/login.component';
 import { HomeComponent } from "./home/home.component";
 import { AuthGuard } from './auth.guard';
 import {  UserComponent } from "./containers/user/user.component";
+import  { FlowComponent  } from "./flow/flow.component"
 const routes: Routes = [
   { path: 'login', component: LoginComponent , canActivate: []},
   {
@@ -16,6 +17,13 @@ const routes: Routes = [
           component: UserComponent,
           data: {
             title: 'Users',
+          }
+        },
+        {
+          path: 'flow',
+          component: FlowComponent,
+          data: {
+            title: 'flow',
           }
         }
     ]
