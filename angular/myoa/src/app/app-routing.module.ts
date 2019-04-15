@@ -6,16 +6,19 @@ import { AuthGuard } from './auth.guard';
 import {  UserComponent } from "./containers/user/user.component";
 const routes: Routes = [
   { path: 'login', component: LoginComponent , canActivate: []},
-  { path: 'home', component: HomeComponent , canActivate: [AuthGuard],
-  children: [
-    {
-    path: 'user',
-    component: UserComponent,
-    data: {
-      title: 'Users',
-    }
-  }
-  ]
+  {
+    path: 'home', 
+    component: HomeComponent , 
+    canActivate: [AuthGuard],
+    children: [
+        {
+          path: 'user',
+          component: UserComponent,
+          data: {
+            title: 'Users',
+          }
+        }
+    ]
     
   },
     // otherwise redirect to home

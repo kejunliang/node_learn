@@ -15,12 +15,14 @@ import { Router, NavigationEnd, ActivatedRoute, Data } from '@angular/router';
   ]
 })
 export class HomeComponent implements OnInit {
-  name ="";
+  name ="首页";
   title: string;
   primaryNav = true;
   user: "";
   childComponent: any;
-
+  Account="账号";
+  Profile="基础信息"
+  Logout="退出"
   titleSubscription: "";
   userSubscription: "";
 

@@ -6,10 +6,10 @@
             <img mat-card-avatar  />
           </mat-card-header>
           <mat-card-content>
-            <a fxLayout="row" >
+            <a fxLayout="row"  (click)="switchNav()">
               <div fxFlex>
-                <mat-card-title></mat-card-title>
-                <mat-card-subtitle></mat-card-subtitle>
+                <mat-card-title>kejl</mat-card-title>
+                <mat-card-subtitle>kejunliang@126.com</mat-card-subtitle>
               </div>
               <div fxFlex="24px" fxFlexAlign="center">
                 <mat-icon *ngIf="primaryNav" color="primary">arrow_drop_down</mat-icon>
@@ -20,14 +20,14 @@
         </mat-card>
         <app-nav *ngIf="primaryNav" (routerClick)="sidenav.close()"></app-nav>
         <mat-nav-list *ngIf="!primaryNav">
-          <h3 matSubheader>Account</h3>
+          <h3 matSubheader>{{Account}}</h3>
           <a mat-list-item routerLink="/profile" routerLinkActive="active" (click)="sidenav.close()">
             <mat-icon>account_circle</mat-icon>
-            <span fxFlexOffset="30px">Profile</span>
+            <span fxFlexOffset="30px">{{Profile}}</span>
           </a>
           <a mat-list-item >
             <mat-icon>directions_run</mat-icon>
-            <span fxFlexOffset="30px">Logout</span>
+            <span fxFlexOffset="30px">{{Logout}}</span>
           </a>
         </mat-nav-list>
       </div>
@@ -37,13 +37,13 @@
         <button mat-icon-button class="sidenav-button" fxShow="false" fxShow.lt-md="true" (click)="sidenav.open()">
           <mat-icon>menu</mat-icon>
         </button>
-        <span fxFlex="auto" class="brand">name</span>
+        <span fxFlex="auto" class="brand">{{name}}</span>
         <button mat-button [matMenuTriggerFor]="profileMenu" fxShow="true" fxShow.lt-md="false">
-          <img class="avatar" /> My account
+          <img class="avatar" />{{Account}}
         </button>
         <mat-menu #profileMenu>
-          <a mat-menu-item routerLink="/profile" routerLinkActive="active">Profile</a>
-          <button mat-menu-item >Logout</button>
+          <a mat-menu-item routerLink="/profile" routerLinkActive="active">基础信息</a>
+          <button mat-menu-item >退出</button>
         </mat-menu>
       </mat-toolbar>
       <div fxLayout="row" class="container">
@@ -52,7 +52,6 @@
         </div>
         <div fxFlex="80%" fxFlex.lt-md="100%" class="content">
           <div >
-           
             <router-outlet ></router-outlet>
           </div>
         </div>
