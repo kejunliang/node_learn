@@ -43,7 +43,7 @@
         </button>
         <mat-menu #profileMenu>
           <a mat-menu-item routerLink="/profile" routerLinkActive="active">基础信息</a>
-          <button mat-menu-item >退出</button>
+          <button mat-menu-item  (click)="logout()">退出</button>
         </mat-menu>
       </mat-toolbar>
       <div fxLayout="row" class="container">

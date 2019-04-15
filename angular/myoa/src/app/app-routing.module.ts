@@ -22,7 +22,7 @@ const routes: Routes = [
     
   },
     // otherwise redirect to home
-  { path: '**', component:  HomeComponent}
+  { path: '**', component:  HomeComponent, canActivate: [AuthGuard]}
     
 ];
 

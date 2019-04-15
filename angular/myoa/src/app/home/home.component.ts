@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'; 
 import { trigger, style, animate, transition } from '@angular/animations';
 import { Router, NavigationEnd, ActivatedRoute, Data } from '@angular/router';
+import { AuthService } from "../auth.service";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -29,7 +30,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-  
+    private auth:AuthService
   ) {
    
    
@@ -44,7 +45,9 @@ export class HomeComponent implements OnInit {
   }
 
   logout(): void {
-  
+     console.log("退出")
+     this.auth.logout();
+     this.router.navigate(['login']);
   }
   ngOnInit(){
 
