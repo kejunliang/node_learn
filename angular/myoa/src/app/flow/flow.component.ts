@@ -1,4 +1,5 @@
 import { AfterViewInit,Component, OnInit } from '@angular/core';
+
 declare const jsPlumb: any;
 @Component({
   selector: 'app-flow',
@@ -6,14 +7,17 @@ declare const jsPlumb: any;
   styleUrls: ['./flow.component.css']
 })
 export class FlowComponent implements AfterViewInit {
-
-  title = 'Angular JsPlumb Integration';
+ 
+  
+  title = '我的流程图';
   jsPlumbInstance;
   showConnectionToggle = false;
-
+  
   ngAfterViewInit() {
     this.jsPlumbInstance = jsPlumb.getInstance();
     this.showConnectOnClick();
+  
+    
   }
 
   showConnectOnClick() {
@@ -24,20 +28,20 @@ export class FlowComponent implements AfterViewInit {
     } else {
       this.jsPlumbInstance.reset();
     }
+    
   }
 
   connectSourceToTargetUsingJSPlumb() {
     let labelName;
       labelName = 'connection';
+      this.jsPlumbInstance.setContainer('diagramContainer')
       this.jsPlumbInstance.connect({
-        connector: ['Flowchart', {stub: [212, 67], cornerRadius: 1, alwaysRespectStubs: true}],
-        source: 'Source',
-        target: 'Target1',
-        anchor: ['Right', 'Left'],
-        paintStyle: {stroke: '#456', strokeWidth: 4},
-        overlays: [
-          ['Label', {label: labelName, location: 0.5, cssClass: 'connectingConnectorLabel'}]
-        ],
-      });
+        source: 'item_left',
+        target: 'item_right',
+        endpoint: 'Rectangle'
+      })
+      this.jsPlumbInstance.draggable('item_left')
+      this.jsPlumbInstance.draggable('item_right')
+
   }  
 }

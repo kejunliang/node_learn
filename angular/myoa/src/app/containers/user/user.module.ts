@@ -18,9 +18,9 @@ import { UserComponent } from './user.component';
   ],
 })
 export class UserModule  implements AfterViewInit{ 
-
-  ngAfterViewInit() {
-  
+   data="测试";
+   ngAfterViewInit() {
+     this.data="测试" 
   }
    
 }

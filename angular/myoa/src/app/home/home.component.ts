@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   Logout="退出"
   titleSubscription: "";
   userSubscription: "";
-
+  flow=false;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit {
      this.router.navigate(['login']);
   }
   ngOnInit(){
-
+    console.log("home")
+     console.log(this.route.url)
   }
 }
