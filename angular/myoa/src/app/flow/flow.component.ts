@@ -1,46 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit,Component, OnInit } from '@angular/core';
 declare const jsPlumb: any;
 @Component({
   selector: 'app-flow',
   templateUrl: './flow.component.html',
   styleUrls: ['./flow.component.css']
 })
-export class FlowComponent implements OnInit {
+export class FlowComponent implements AfterViewInit {
 
-  constructor() { }
+  title = 'Angular JsPlumb Integration';
+  jsPlumbInstance;
+  showConnectionToggle = false;
 
-  ngOnInit() {
-    var common = {
-      isSource:true,
-      isTarget:true,
-      connector: ['Bezier'],
-      //paintStyle: { stroke: 'lightgray', strokeWidth: 3 },//空的锚点风格
-      endpointStyle: { fill: 'lightgray', outlineStroke: 'darkgray', outlineWidth: 2 }
-     
-    }
-
-    console.log("进来了");
-    jsPlumb.ready(function () {
-        //添加节点
-		   jsPlumb.addEndpoint('item_left',{achors:['Right']},common)
-		   jsPlumb.addEndpoint('item_right',{achors:['Left']},common)
-	       	
-          
-       	jsPlumb.draggable('item_left', {
-			  containment: 'parent',
-			  grid: [10, 10]
-			})
-       	  
-      jsPlumb.draggable('item_right')
-           
-            // 单点击了连接线, 似乎不怎么好用
-			jsPlumb.bind('click', function (conn, originalEvent) {
-			  if (confirm('确定删除所点击的链接吗？')) {
-			    jsPlumb.detach(conn)
-			  }
-			})
-
-    })
+  ngAfterViewInit() {
+    this.jsPlumbInstance = jsPlumb.getInstance();
+    this.showConnectOnClick();
   }
 
+  showConnectOnClick() {
+    this.showConnectionToggle = ! this.showConnectionToggle;
+    if ( this.showConnectionToggle) {
+      this.jsPlumbInstance = jsPlumb.getInstance();
+      this.connectSourceToTargetUsingJSPlumb();
+    } else {
+      this.jsPlumbInstance.reset();
+    }
+  }
+
+  connectSourceToTargetUsingJSPlumb() {
+    let labelName;
+      labelName = 'connection';
+      this.jsPlumbInstance.connect({
+        connector: ['Flowchart', {stub: [212, 67], cornerRadius: 1, alwaysRespectStubs: true}],
+        source: 'Source',
+        target: 'Target1',
+        anchor: ['Right', 'Left'],
+        paintStyle: {stroke: '#456', strokeWidth: 4},
+        overlays: [
+          ['Label', {label: labelName, location: 0.5, cssClass: 'connectingConnectorLabel'}]
+        ],
+      });
+  }  
 }

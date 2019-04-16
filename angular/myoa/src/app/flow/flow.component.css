@@ -1,14 +1,23 @@
-.item {
-    position: absolute;
-    height: 80px;
-    width: 80px;
-    border: 1px solid blue;
-}
 
-#diagramContainer {
-    padding: 20px;
-    width: 80%;
-    height: 400px;
-    border: 1px solid gray;
-    background-repeat: repeat;
-}
+.title {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #405065;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 49px;
+  }
+  .customBox {
+    margin-top: 5%;
+    padding: 8px 100px;
+    box-shadow: 0 10px 40px 0 #B0C1D9;
+  }
+  
+  .alignleft {
+    float: left;
+  }
+  
+  .alignright {
+    float: right;
+  }
+  

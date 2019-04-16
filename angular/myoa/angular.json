@@ -28,7 +28,7 @@
             "scripts": [
               "src/assets/js/jquery.js",
               "src/assets/js/jquery-ui.js",
-              "src/assets/js/jquery.jsPlumb-1.7.2.js"
+              "../myoa/node_modules/jsplumb/dist/js/jsplumb.min.js"
             ],
             "es5BrowserSupport": true
           },
