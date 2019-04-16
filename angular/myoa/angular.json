@@ -26,7 +26,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "src/assets/js/jquery.js",
+              "../myoa/node_modules/jquery/dist/jquery.min.js",
               "src/assets/js/jquery-ui.js",
               "../myoa/node_modules/jsplumb/dist/js/jsplumb.min.js"
             ],

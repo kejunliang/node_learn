@@ -2,7 +2,22 @@
 <div class="text-center title">
   {{title}}
 </div>
-<div id="diagramContainer">
+<div id="diagramContainer" *ngIf=true>
   <div id="item_left" class="item">环节一</div>
   <div id="item_right" class="item" style="margin-left:150px;">环节二</div>
 </div>
+
+<div class="content-container"    fxLayout="row"  fxLayout.xs="column" fxLayoutAlign="left" >
+  <div id="left" fxFlex="33" >
+    <div class="node radius" id="node1" >开始</div>  
+    <div class="node" id="node2">流程</div>
+    <div class="node" id="node3">判断</div>
+    <div class="node radius" id="node4">结束</div>
+  </div>     
+    <div id="right" >
+    <p>拖拉到此区域</p>
+  </div>
+ 
+
+</div>
+
