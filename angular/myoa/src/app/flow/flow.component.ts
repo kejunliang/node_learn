@@ -13,32 +13,14 @@ export class FlowComponent implements AfterViewInit {
   
   title = '我的流程图';
   jsPlumbInstance;
-  showConnectionToggle = false;
-  offx = 0;
-  offy = 0;
-  code = 0;    
-  lastDropEvent: DndDropEvent[] = [];
-  currentNodeData;
+ 
   ngAfterViewInit() {
     this.jsPlumbInstance = jsPlumb.getInstance();
-      this.showConnectOnClick();
-  
+    this.connectSourceToTargetUsingJSPlumb();
     
   }
-
-  showConnectOnClick() {
-    this.showConnectionToggle = ! this.showConnectionToggle;
-    if ( this.showConnectionToggle) {
-      this.jsPlumbInstance = jsPlumb.getInstance();
-      this.connectSourceToTargetUsingJSPlumb();
-    } else {
-      this.jsPlumbInstance.reset();
-    }
-    
-  }
-
   connectSourceToTargetUsingJSPlumb() {
-      ///默认进来先删除所有的连接
+     
      
       let  that=this
       let labelName;
@@ -88,7 +70,8 @@ export class FlowComponent implements AfterViewInit {
         isSource: true,
         isTarget: true,
       }
-      setTimeout(function(){jsPlumb.deleteEveryEndpoint()},100) 
+       ///默认重新画之前先重置，处理单一页面路由切换重复的bug
+      setTimeout(function(){jsPlumb.reset()},100) 
       $("#left").children().draggable({
           helper: "clone",
           scope: "ss",
@@ -123,7 +106,8 @@ export class FlowComponent implements AfterViewInit {
 							$("#" + id).css("left", left).css("top", top);
               jsPlumb.addEndpoint(id, { anchors: "Left" },common);
               jsPlumb.addEndpoint(id, { anchors: "Right" },common);
-							jsPlumb.draggable(id);
+              jsPlumb.draggable(id);
+              doubleclick("#" + id);
 							break;
 						case "node3":
 							i++;
@@ -146,11 +130,21 @@ export class FlowComponent implements AfterViewInit {
 				}
 			});
       
-  
-  }  
 
-  onDrop(event: any) {
-    this.lastDropEvent.push(event);
-    this.currentNodeData = event.data;
+      function doubleclick(id) {
+        $(id).dblclick(function () {
+          var text = $(this).text();
+          $(this).html("");
+          $(this).append("<input type='text' value='" + text + "' />");
+          $(this).mouseleave(function () {
+            $(this).html($("input[type='text']").val());
+          });
+        });
+      }
+  
   }
+  
+  
+
+ 
 }
