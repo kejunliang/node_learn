@@ -25,6 +25,8 @@ import { NavModule } from './nav/nav.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FlowComponent } from './flow/flow.component';
 import { DragDropModule } from "@angular/cdk/drag-drop";
+
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
@@ -52,7 +54,8 @@ export function tokenGetter() {
     MatMenuModule,
     MatToolbarModule,
     FlexLayoutModule,
-    DragDropModule
+    DragDropModule,
+    NgxDatatableModule
   ],
   providers: [
     AuthService, 
