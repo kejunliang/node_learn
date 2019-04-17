@@ -2,6 +2,7 @@ import { AfterViewInit,Component, OnInit } from '@angular/core';
 declare var $ : any;
 import { DndDropEvent } from 'ngx-drag-drop';  
 declare const jsPlumb: any;
+import { DragDropModule } from "@angular/cdk/drag-drop";
 @Component({
   selector: 'app-flow',
   templateUrl: './flow.component.html',
@@ -81,8 +82,12 @@ export class FlowComponent implements AfterViewInit {
 				isTarget: true,	//是否可以放置（连线终点）
 				maxConnections: -1,	// 设置连接点最多可以连接几条线
 				connectorOverlays: [["Arrow", { width: 10, length: 10, location: 1 }]]
-			};
-      $("#node1").draggable({
+      };
+      var common = {
+        isSource: true,
+        isTarget: true,
+      }
+      $("#left").children().draggable({
           helper: "clone",
           scope: "ss",
       });
@@ -104,16 +109,37 @@ export class FlowComponent implements AfterViewInit {
               console.log(left)
               console.log(top)
 							$(this).append('<div class="node"  style="position:absolute;border-radius: 25em"  id="' + id + '" >' + $(ui.helper).html() + '</div>');
-							$("#" + id).css("left", left).css("top", top);
-              //this.jsPlumbInstance.addEndpoint(id, { anchors: "TopCenter" }, hollowCircle);
-              //this.jsPlumbInstance.addEndpoint(id, { anchors: "RightMiddle" }, hollowCircle);
-             // this.jsPlumbInstance.addEndpoint(id, { anchors: "BottomCenter" }, hollowCircle);
-              //this.jsPlumbInstance.addEndpoint(id, { anchors: "LeftMiddle" }, hollowCircle);
-              //this.jsPlumbInstance.draggable(id);
-						//	$("#" + id).draggable({ containment: "parent" });
-						
+              $("#" + id).css("left", left).css("top", top);
+              jsPlumb.setContainer('right')  
+              jsPlumb.addEndpoint(id, { anchors: "Right" },common);
+              jsPlumb.draggable(id);				
 							break;
-					
+              case "node2":
+							i++;
+							id = "state_flow" + i;
+							$(this).append("<div class='node' id='" + id + "'>" + $(ui.helper).html() + "</div>");
+							$("#" + id).css("left", left).css("top", top);
+              jsPlumb.addEndpoint(id, { anchors: "Left" },common);
+              jsPlumb.addEndpoint(id, { anchors: "Right" },common);
+							jsPlumb.draggable(id);
+							break;
+						case "node3":
+							i++;
+							id = "state_decide" + i;
+							$(this).append("<div class='node' id='" + id + "'>" + $(ui.helper).html() + "</div>");
+							$("#" + id).css("left", left).css("top", top);
+              jsPlumb.addEndpoint(id, { anchors: "Left" },common);
+              jsPlumb.addEndpoint(id, { anchors: "Right" },common);
+							jsPlumb.draggable(id);
+							break;
+						case "node4":
+							i++;
+							id = "state_end" + i;
+							$(this).append('<div class="node" style="border-radius: 25em"  id="' + id + '" >' + $(ui.helper).html() + '</div>');
+							$("#" + id).css("left", left).css("top", top);
+              jsPlumb.addEndpoint(id, { anchors: "Left" },common);
+							jsPlumb.draggable(id);
+							break;
 					}
 				}
 			});

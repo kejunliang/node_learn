@@ -24,7 +24,7 @@ import { AuthGuard } from './auth.guard';
 import { NavModule } from './nav/nav.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FlowComponent } from './flow/flow.component';
-
+import { DragDropModule } from "@angular/cdk/drag-drop";
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
@@ -51,7 +51,8 @@ export function tokenGetter() {
     NavModule,
     MatMenuModule,
     MatToolbarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    DragDropModule
   ],
   providers: [
     AuthService, 
