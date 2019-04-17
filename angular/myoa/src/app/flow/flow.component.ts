@@ -38,9 +38,10 @@ export class FlowComponent implements AfterViewInit {
   }
 
   connectSourceToTargetUsingJSPlumb() {
-    
-    let  that=this
-    let labelName;
+      ///默认进来先删除所有的连接
+     
+      let  that=this
+      let labelName;
       labelName = 'connection';
       this.jsPlumbInstance.setContainer('diagramContainer')
       this.jsPlumbInstance.connect({
@@ -87,6 +88,7 @@ export class FlowComponent implements AfterViewInit {
         isSource: true,
         isTarget: true,
       }
+      setTimeout(function(){jsPlumb.deleteEveryEndpoint()},100) 
       $("#left").children().draggable({
           helper: "clone",
           scope: "ss",
