@@ -16,7 +16,7 @@ import { MatTreeModule } from "@angular/material/tree";
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClientModule }    from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import { MatSidenavModule,MatMenuModule,MatToolbarModule } from "@angular/material";
+import { MatSidenavModule,MatMenuModule,MatToolbarModule ,MatPaginator, MatTableDataSource} from "@angular/material";
 import {  UserComponent } from "./containers/user/user.component";
 import { JwtModule } from '@auth0/angular-jwt'; 
 import { AuthService } from './auth.service';
@@ -25,8 +25,9 @@ import { NavModule } from './nav/nav.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FlowComponent } from './flow/flow.component';
 import { DragDropModule } from "@angular/cdk/drag-drop";
-
+import {MatTableModule} from '@angular/material/table';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import {MatPaginatorModule} from '@angular/material/paginator';
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
@@ -55,7 +56,9 @@ export function tokenGetter() {
     MatToolbarModule,
     FlexLayoutModule,
     DragDropModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [
     AuthService, 
