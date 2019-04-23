@@ -28,6 +28,11 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
 import {MatTableModule} from '@angular/material/table';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {UserFormDialogComponent  } from "./containers/user/user-form-dialog.component";
+
+import { MatDialogModule } from '@angular/material';
+
+
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
@@ -38,7 +43,8 @@ export function tokenGetter() {
     LoginComponent,
     HomeComponent,
     UserComponent,
-    FlowComponent
+    FlowComponent,
+    UserFormDialogComponent
   ],
   imports: [
     BrowserModule,MatCardModule,BrowserAnimationsModule,MatButtonModule,MatInputModule,FormsModule,MatIconModule,
@@ -58,11 +64,16 @@ export function tokenGetter() {
     DragDropModule,
     NgxDatatableModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [
     AuthService, 
-    AuthGuard
+    AuthGuard,
+    UserFormDialogComponent
+  ],
+  entryComponents: [
+    UserFormDialogComponent
   ],
   bootstrap: [AppComponent]
 })

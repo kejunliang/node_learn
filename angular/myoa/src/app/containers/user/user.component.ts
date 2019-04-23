@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
+
 import { SortPropDir } from '@swimlane/ngx-datatable';
 import { BehaviorSubject } from 'rxjs';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
+import { UserFormDialogComponent } from "./user-form-dialog.component";
+import { MatDialog, MatDialogRef } from '@angular/material';
 
 @Component({
   templateUrl: './user.component.html',
@@ -15,13 +17,26 @@ export class UserComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator; 
 
-  constructor() {}
+  constructor(  private dialog: MatDialog) {}
   
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
   }
 
- 
+  createUser(): void {
+    const dialogRef = this.openFormDialog({
+      title: 'Create User',
+    
+      callback: (): void => {
+       
+        dialogRef.close();
+      }
+    });
+  }
+
+  openFormDialog(data: any): MatDialogRef<UserFormDialogComponent> {
+    return this.dialog.open(UserFormDialogComponent, { data });
+  }
 
  
 } 
