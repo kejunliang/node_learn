@@ -5,5 +5,15 @@
 </ion-header>
  
 <ion-content padding>
-  <ion-button (click)="Login()" expand="block">Login</ion-button>
+   <!-- Inputs with labels -->
+  <ion-item *ngIf="sendStat">
+    <ion-label>Email:</ion-label>
+    <ion-input [(ngModel)]="email" ></ion-input>
+  </ion-item>
+  <ion-item *ngIf="!sendStat">
+      <ion-label>Verification code:</ion-label>
+      <ion-input [(ngModel)]="code"></ion-input>
+    </ion-item>
+  <ion-button  *ngIf="sendStat" (click)="Login()" expand="block">send</ion-button>
+  <ion-button  *ngIf="!sendStat" (click)="Login()" expand="block">Login</ion-button>
 </ion-content>

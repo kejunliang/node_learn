@@ -40,7 +40,7 @@ app.post('/api/auth', function(req, res) {
     const user = USERS.find(user =>  user.username == body.username);
     if(!user || body.password != 'todo') return res.sendStatus(401);
     
-    var token = jwt.sign({userID: user.id,userName:user.username}, 'todo-app-super-shared-secret', {expiresIn: '2h'});
+    var token ="adasdfdfdfdfd232323" //jwt.sign({userID: user.id,userName:user.username}, 'todo-app-super-shared-secret', {expiresIn: '2h'});
     res.send({token});
   });
  
