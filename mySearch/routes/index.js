@@ -1,18 +1,27 @@
-const Router = require('koa-router')
+const Router = require('koa-router');
 const home = new Router()
 
-// /home
 home.get('/', async (ctx, next) => {
-    ctx.response.status = 200
-    ctx.response.body = 'home'
+    title = 'Easy Search'
+    await ctx.render('index', {
+      title,
+    })
     await next()
-})
-
-// home/list
-home.get('/list', async (ctx, next) => {
-    ctx.response.status = 200
-    ctx.response.body = 'home-list'
+  })
+  
+  home.get('/list', async (ctx, next) => {
+    var query=ctx.querystring
+    var key=query.split("=")[1]
+    console.log(decodeURIComponent(key))
+    const data = require("./getdata")
+    let res = await data;
+    title = {
+      "title":"结果",
+      "data":res
+  }
+    await ctx.render('list', {
+      title,
+    })
     await next()
-})
-
-module.exports = home
+  })
+  module.exports=home.routes()
