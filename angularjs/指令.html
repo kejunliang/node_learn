@@ -10,8 +10,17 @@
 </head>
 
 <body ng-app="myApp">
-   
-   
+    <div ng-if="1==1">测试ng-if</div>
+    <div ng-hide="true">测试</div>
+    <div ng-show="true">测试ng-show</div>
+    <div ng-repeat="x in [1,2,3]">
+        <div>{{x}}</div>
+    </div>
+    <div>
+        <smartdot-directive></smartdot-directive>
+        <div class="smartdot-directive"></div>
+        <div smartdot-directive></div>
+    </div>  
    
 </body>
 

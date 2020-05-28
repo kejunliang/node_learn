@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="angular.min.js"></script>
-    <script src="index.js" ></script>
-</head>
+    <script src="index.js"></script>
+  </head>
 
-<body ng-app="myApp">
-   
-   
-   
-</body>
-
+  <body ng-app="myApp">
+    <div>
+      <p>我的第一个表达式: {{ 5 + 5 }}</p>
+    </div>
+    <hr align="left" width="100%" color="#987cb9" size="1" />
+    <div ng-init="quantity=1;cost=5">
+      <p>总价： {{ quantity * cost }}</p>
+    </div>
+    <hr align="left" width="100%" color="#987cb9" size="1" />
+    <div ng-init="firstName='John';lastName='Doe'">
+      <p>姓名： <span ng-bind="firstName + ' ' + lastName"></span></p>
+    </div>
+    <hr align="left" width="100%" color="#987cb9" size="1" />
+    <div ng-init="person={firstName:'John',lastName:'Doe'}">
+      <p>姓为 {{ person.lastName }}</p>
+    </div>
+    <hr align="left" width="100%" color="#987cb9" size="1" />
+    <div  ng-init="points=[1,15,19,2,40]">
+      <p>第三个值为 {{ points[2] }}</p>
+    </div>
+  </body>
 </html>

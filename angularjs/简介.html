@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="angular.min.js"></script>
-    <script src="index.js" ></script>
-</head>
+    <script src="index.js"></script>
+  </head>
 
-<body ng-app="myApp">
+  <body ng-app="myApp">
     <div ng-init="Hello='John'">
-        <p>姓名为 <span>{{Hello}}</span></p>
+      <p>姓名为 <span>{{Hello}}</span></p>
     </div>
-    <HR align=left width=100% color=#987cb9 SIZE=1>
+    <hr align="left" width="100%" color="#987cb9" size="1" />
     <div ng-init="name='tom'">
-        <p>名字 : <input type="text" ng-model="name"></p>
-        <h1 >Hello {{name}}</h1>
-        <p ng-bind="name"></p>
+      <p>名字 : <input type="text" ng-model="name" /></p>
+      <h1>Hello {{name}}</h1>
+      <p ng-bind="name"></p>
     </div>
-    <HR align=left width=100% color=#987cb9 SIZE=1>
+    <hr align="left" width="100%" color="#987cb9" size="1" />
     <div ng-controller="myCtrl">
-        名: <input type="text" ng-model="firstName"><br>
-        姓: <input type="text" ng-model="lastName"><br>
-        <br>
-        姓名: {{firstName + " " + lastName}}
+      名: <input type="text" ng-model="firstName" /><br />
+      姓: <input type="text" ng-model="lastName" /><br />
+      <br />
+      姓名: {{firstName + " " + lastName}}
     </div>
-   
-</body>
-
+  </body>
 </html>
