@@ -1,0 +1,21 @@
+{
+  "sd-qrcode": {
+    "attributes": ["value", "options", "tag"],
+    "defaults": ["value"],
+    "description": "展示一个二维码"
+  },
+  "sd-echart": {
+    "attributes": [
+      "initOptions",
+      "options",
+      "theme",
+      "group",
+      "autoresize ",
+      "manual-update",
+      "click",
+      "mouseover"
+    ],
+    "defaults": ["options"],
+    "description": "包装vue-echarts，适配当前主题"
+  }
+}

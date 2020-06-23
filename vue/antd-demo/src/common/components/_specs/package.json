@@ -1,0 +1,10 @@
+{
+  "name": "sd-components-spec",
+  "version": "1.0.0",
+  "description": "项目里组件的规格说明",
+  "license": "MIT",
+  "vetur": {
+    "tags": "../../src/common/components/_specs/tags.json",
+    "attributes": "../../src/common/components/_specs/attributes.json"
+  }
+}

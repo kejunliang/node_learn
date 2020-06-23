@@ -1,0 +1,16 @@
+{
+  "sd-qrcode/value": {
+    "description": "二维码的内容"
+  },
+  "sd-qrcode/options": {
+    "description": "请参考 https://github.com/soldair/node-qrcode#qr-code-options"
+  },
+  "sd-qrcode/tag": {
+    "options": ["canvas", "img"],
+    "description": "渲染二维码的html标签"
+  },
+
+  "sd-echart/options": {
+    "description": "请参考 https://github.com/ecomfe/vue-echarts/blob/master/README.zh_CN.md#props-%E5%9D%87%E4%B8%BA%E5%93%8D%E5%BA%94%E5%BC%8F"
+  }
+}
