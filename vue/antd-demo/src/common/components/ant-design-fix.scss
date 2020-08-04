@@ -1,0 +1,6 @@
+// ant-design css的bug在此修复
+
+// 修复IE11下 滚动时header不固定的问题
+.ant-layout-header + .ant-layout {
+  flex-basis: 0;
+}
